@@ -1,8 +1,8 @@
 package core.basesyntax;
 
-// Клас тепер імплементує інтерфейс Drawable
-public abstract class Figure implements Drawable {
-    // Спільний стан (Field)
+// Figure тепер імплементує обидва інтерфейси
+public abstract class Figure implements Drawable, AreaCalculatable {
+
     private String color;
 
     // Конструктор
@@ -10,17 +10,15 @@ public abstract class Figure implements Drawable {
         this.color = color;
     }
 
-    // Абстрактний метод з інтерфейсу Drawable. Реалізується в підкласах.
-    @Override
-    public abstract double getArea();
-
-    // Абстрактний метод з інтерфейсу Drawable.
-    // Реалізується в підкласах для формування рядка з усією інформацією.
-    @Override
-    public abstract String draw();
-
-    // Геттер для кольору (корисний для логіки)
     public String getColor() {
         return color;
     }
+
+    // Успадковано від AreaCalculatable (збереглося без змін)
+    @Override
+    public abstract double getArea();
+
+    // Успадковано від Drawable (збереглося без змін)
+    @Override
+    public abstract String draw();
 }
