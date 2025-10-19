@@ -22,6 +22,8 @@ public class IsoscelesTrapezoid extends Figure {
 
     @Override
     protected void printUniqueParameters() {
-        System.out.printf(", base1: %.2f units, base2: %.2f units, height: %.2f units", base1, base2, height);
+        System.out.printf(", base1: %.2f units, base2: %.2f units"
+                        + ", height: %.2f units",
+                base1, base2, height);
     }
 }
