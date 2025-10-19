@@ -20,10 +20,15 @@ public class IsoscelesTrapezoid extends Figure {
         return ((base1 + base2) / 2.0) * height;
     }
 
+    // Імплементація методу draw() з інтерфейсу Drawable (через Figure).
+    // Повертає повний рядок з інформацією про фігуру.
     @Override
-    protected void printUniqueParameters() {
-        System.out.printf(", base1: %.2f units, base2: %.2f units"
-                        + ", height: %.2f units",
-                base1, base2, height);
+    public String draw() {
+        // Формуємо повний рядок: Figure: isoscelestrapezoid, area: X.XX sq. units, ... color: ZZZ
+        return "Figure: isosceles trapezoid, area: " + String.format("%.2f", getArea())
+                + " sq. units, base1: " + String.format("%.2f", base1)
+                + " units, base2: " + String.format("%.2f", base2)
+                + " units, height: " + String.format("%.2f", height)
+                + " units, color: " + getColor();
     }
 }

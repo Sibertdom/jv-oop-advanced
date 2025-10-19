@@ -1,6 +1,7 @@
 package core.basesyntax;
 
-public abstract class Figure {
+// Клас тепер імплементує інтерфейс Drawable
+public abstract class Figure implements Drawable {
     // Спільний стан (Field)
     private String color;
 
@@ -9,21 +10,14 @@ public abstract class Figure {
         this.color = color;
     }
 
-    // Абстрактна поведінка (для обчислення площі, реалізується в підкласах)
+    // Абстрактний метод з інтерфейсу Drawable. Реалізується в підкласах.
+    @Override
     public abstract double getArea();
 
-    // Реалізована поведінка (для виведення інформації)
-    public void draw() {
-        System.out.print("Figure: " + this.getClass().getSimpleName().toLowerCase());
-        System.out.printf(", area: %.2f sq. units", getArea());
-        System.out.println(", color: " + color);
-
-        // Виклик методу для виведення унікальних параметрів
-        printUniqueParameters();
-    }
-
-    // Абстрактний метод для виведення унікальних параметрів фігури
-    protected abstract void printUniqueParameters();
+    // Абстрактний метод з інтерфейсу Drawable.
+    // Реалізується в підкласах для формування рядка з усією інформацією.
+    @Override
+    public abstract String draw();
 
     // Геттер для кольору (корисний для логіки)
     public String getColor() {

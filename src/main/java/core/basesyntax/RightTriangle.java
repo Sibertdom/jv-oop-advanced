@@ -16,8 +16,16 @@ public class RightTriangle extends Figure {
         return (firstLeg * secondLeg) / 2.0;
     }
 
+    // Імплементація методу draw() з інтерфейсу Drawable (через Figure).
+    // Повертає повний рядок з інформацією про фігуру.
     @Override
-    protected void printUniqueParameters() {
-        System.out.printf(", firstLeg: %.2f units, secondLeg: %.2f units", firstLeg, secondLeg);
+    public String draw() {
+        // Формуємо повний рядок:
+        // Figure: righttriangle, area: X.XX sq. units,
+        // firstLeg: Y.YY units, secondLeg: Z.ZZ units, color: AAA
+        return "Figure: right triangle, area: " + String.format("%.2f", getArea())
+                + " sq. units, firstLeg: " + String.format("%.2f", firstLeg)
+                + " units, secondLeg: " + String.format("%.2f", secondLeg)
+                + " units, color: " + getColor();
     }
 }
