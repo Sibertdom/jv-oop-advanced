@@ -6,7 +6,6 @@ public class FigureSupplier {
     private static final int NUMBER_OF_FIGURES = 5;
     private static final int MAX_PROPERTY_VALUE = 10;
     private static final double DEFAULT_RADIUS = 10.0;
-
     private static final Color DEFAULT_COLOR = Color.WHITE;
 
     private final ColorSupplier colorSupplier = new ColorSupplier();
@@ -14,24 +13,28 @@ public class FigureSupplier {
 
     public Figure getRandomFigure() {
         int figureType = random.nextInt(NUMBER_OF_FIGURES);
-
         Color color = colorSupplier.getRandomColor();
-
-        double property1 = random.nextDouble() * MAX_PROPERTY_VALUE + 1; // [1, 11)
-        double property2 = random.nextDouble() * MAX_PROPERTY_VALUE + 1; // [1, 11)
-        double property3 = random.nextDouble() * MAX_PROPERTY_VALUE + 1; // [1, 11)
 
         switch (figureType) {
             case 0:
-                return new Square(color, property1);
+                double side = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                return new Square(color, side);
             case 1:
-                return new Circle(color, property1);
+                double radius = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                return new Circle(color, radius);
             case 2:
-                return new RightTriangle(color, property1, property2);
+                double base = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                double height = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                return new RightTriangle(color, base, height);
             case 3:
-                return new Rectangle(color, property1, property2);
+                double length = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                double width = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                return new Rectangle(color, length, width);
             case 4:
-                return new IsoscelesTrapezoid(color, property1, property2, property3);
+                double topBase = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                double bottomBase = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                double trapezoidHeight = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                return new IsoscelesTrapezoid(color, topBase, bottomBase, trapezoidHeight);
             default:
                 return getDefaultFigure();
         }
