@@ -6,7 +6,6 @@ public class FigureSupplier {
     private static final int NUMBER_OF_FIGURES = 5;
     private static final int MAX_PROPERTY_VALUE = 10;
     private static final double DEFAULT_RADIUS = 10.0;
-    // ЗМІНА 1: Повертаємося до String для DEFAULT_COLOR
     private static final String DEFAULT_COLOR = "white";
 
     private final ColorSupplier colorSupplier = new ColorSupplier();
@@ -14,7 +13,6 @@ public class FigureSupplier {
 
     public Figure getRandomFigure() {
         int figureType = random.nextInt(NUMBER_OF_FIGURES);
-        // ЗМІНА 2: Тип змінної змінено на String
         String color = colorSupplier.getRandomColor();
 
         switch (figureType) {
@@ -36,7 +34,6 @@ public class FigureSupplier {
                 double topBase = getRandomProperty();
                 double bottomBase = getRandomProperty();
                 double trapezoidHeight = getRandomProperty();
-                // Тут вже використовуються правильні імена: topBase, bottomBase
                 return new IsoscelesTrapezoid(color, topBase, bottomBase, trapezoidHeight);
             default:
                 return getDefaultFigure();
@@ -47,7 +44,6 @@ public class FigureSupplier {
         return new Circle(DEFAULT_COLOR, DEFAULT_RADIUS);
     }
 
-    // Виділений метод getRandomProperty() (Виправлення, яке ви вже внесли)
     private double getRandomProperty() {
         return random.nextDouble() * MAX_PROPERTY_VALUE + 1;
     }
