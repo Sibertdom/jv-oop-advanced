@@ -1,24 +1,20 @@
 package core.basesyntax;
 
-// Figure тепер імплементує обидва інтерфейси
 public abstract class Figure implements Drawable, AreaCalculatable {
 
-    private String color;
+    private Color color;
 
-    // Конструктор
-    public Figure(String color) {
+    public Figure(Color color) {
         this.color = color;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    // Успадковано від AreaCalculatable (збереглося без змін)
     @Override
     public abstract double getArea();
 
-    // Успадковано від Drawable (збереглося без змін)
     @Override
     public abstract String draw();
 }

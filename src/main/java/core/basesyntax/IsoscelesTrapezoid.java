@@ -5,7 +5,7 @@ public class IsoscelesTrapezoid extends Figure {
     private double base2;
     private double height;
 
-    public IsoscelesTrapezoid(String color, double base1, double base2, double height) {
+    public IsoscelesTrapezoid(Color color, double base1, double base2, double height) {
         super(color);
         // Основа1 має бути меншою, ніж Основа2 для логічності,
         // але для обчислення площі порядок не важливий.

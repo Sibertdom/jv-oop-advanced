@@ -3,12 +3,13 @@ package core.basesyntax;
 import java.util.Random;
 
 public class ColorSupplier {
-    private final String[] colors = {"red", "green", "blue", "yellow", "purple", "orange"};
+    // 1. Використовуємо масив значень з нашого ENUM
+    private final Color[] colors = Color.values();
     private final Random random = new Random();
 
-    public String getRandomColor() {
-        // Вибираємо випадковий колір з масиву
-        int index = random.nextInt(colors.length);
-        return colors[index];
+    public Color getRandomColor() {
+        // 2. Генеруємо випадковий індекс для вибору кольору з масиву ENUM
+        int randomIndex = random.nextInt(colors.length);
+        return colors[randomIndex];
     }
 }
