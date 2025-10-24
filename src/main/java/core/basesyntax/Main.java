@@ -9,17 +9,14 @@ public class Main {
 
         int halfSize = ARRAY_SIZE / 2;
 
-        System.out.println("--- GENERATING RANDOM FIGURES ---");
-        for (int i = 0; i < halfSize; i++) {
-            figures[i] = supplier.getRandomFigure();
+        for (int i = 0; i < ARRAY_SIZE; i++) {
+            if (i < halfSize) {
+                figures[i] = supplier.getRandomFigure();
+            } else {
+                figures[i] = supplier.getDefaultFigure();
+            }
         }
 
-        System.out.println("--- GENERATING DEFAULT FIGURES ---");
-        for (int i = halfSize; i < ARRAY_SIZE; i++) {
-            figures[i] = supplier.getDefaultFigure();
-        }
-
-        System.out.println("\n--- DISPLAYING ALL FIGURES ---");
         for (Figure figure : figures) {
             figure.draw();
         }

@@ -17,23 +17,23 @@ public class FigureSupplier {
 
         switch (figureType) {
             case 0:
-                double side = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                double side = getRandomProperty();
                 return new Square(color, side);
             case 1:
-                double radius = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                double radius = getRandomProperty();
                 return new Circle(color, radius);
             case 2:
-                double base = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
-                double height = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                double base = getRandomProperty();
+                double height = getRandomProperty();
                 return new RightTriangle(color, base, height);
             case 3:
-                double length = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
-                double width = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                double length = getRandomProperty();
+                double width = getRandomProperty();
                 return new Rectangle(color, length, width);
             case 4:
-                double topBase = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
-                double bottomBase = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
-                double trapezoidHeight = random.nextDouble() * MAX_PROPERTY_VALUE + 1;
+                double topBase = getRandomProperty();
+                double bottomBase = getRandomProperty();
+                double trapezoidHeight = getRandomProperty();
                 return new IsoscelesTrapezoid(color, topBase, bottomBase, trapezoidHeight);
             default:
                 return getDefaultFigure();
@@ -42,5 +42,9 @@ public class FigureSupplier {
 
     public Figure getDefaultFigure() {
         return new Circle(DEFAULT_COLOR, DEFAULT_RADIUS);
+    }
+
+    private double getRandomProperty() {
+        return random.nextDouble() * MAX_PROPERTY_VALUE + 1;
     }
 }
