@@ -1,12 +1,17 @@
 package core.basesyntax;
 
+import core.basesyntax.Figures.Circle;
+import core.basesyntax.Figures.IsoscelesTrapezoid;
+import core.basesyntax.Figures.Rectangle;
+import core.basesyntax.Figures.RightTriangle;
+import core.basesyntax.Figures.Square;
 import java.util.Random;
 
 public class FigureSupplier {
     private static final int NUMBER_OF_FIGURES = 5;
     private static final int MAX_PROPERTY_VALUE = 10;
     private static final double DEFAULT_RADIUS = 10.0;
-    private static final String DEFAULT_COLOR = "white";
+    private static final String DEFAULT_COLOR = Color.WHITE.name();
 
     private final ColorSupplier colorSupplier = new ColorSupplier();
     private final Random random = new Random();
